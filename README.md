@@ -1,34 +1,61 @@
-Nisa Hobi Evim SQL Veritabanı Projesi
-Bu depo, Nisa Hobi Evim'in çevrimiçi satış ve envanter yönetimi ihtiyaçları için tasarlanmış SQL Server veritabanı projesini içermektedir.
-Proje, ürün kategorizasyonu, müşteri yönetimi, sipariş takibi ve ödeme işlemlerini kapsayan bir veritabanı şeması sunar.
+# 🛍️ Nisa Hobi Evim — Online Alışveriş Sitesi Veritabanı
 
-🎯 Proje Amacı
-Bu projenin temel amacı, Nisa Hobi Evim için aşağıdaki işlevleri destekleyecek temel bir veritabanı altyapısı oluşturmaktır:
+> Bir hobi ürünleri mağazasının çevrimiçi satış ve envanter yönetimi için tasarlanmış ilişkisel SQL Server veritabanı.
+>
+> *A relational Microsoft SQL Server database designed for the online store and inventory management of a hobby shop.*
 
-Ürün ve kategori bilgilerinin yönetimi
-Müşteri kayıtlarının ve adres bilgilerinin saklanması
-Siparişlerin detaylı takibi ve yönetimi
-Ödeme bilgilerinin güvenli bir şekilde işlenmesi
-Kargo firmaları ve yönetici hesaplarının entegrasyonu
+![Veritabanı](https://img.shields.io/badge/Veritaban%C4%B1-Microsoft%20SQL%20Server-CC2927?logo=microsoftsqlserver&logoColor=white)
+![Araç](https://img.shields.io/badge/Ara%C3%A7-SSMS-5C2D91)
 
-🛠️ Kullanılan Teknolojiler
-Veritabanı Sistemi: Microsoft SQL Server
-Veritabanı Tasarım Aracı: SQL Server Management Studio (SSMS)
+## 📌 Proje Hakkında
 
-📄 Veritabanı Şeması
-Projenin ana veritabanı şeması aşağıdaki varlıkları ve aralarındaki ilişkileri içermektedir:
+Bu proje, **Nisa Hobi Evim** adlı hobi mağazası için ürün kataloğu, müşteri yönetimi, sepet, sipariş, ödeme ve kargo süreçlerini kapsayan bir veritabanı şeması sunar. Tablolar arasındaki bire-çok ve çoka-çok ilişkiler normalizasyon kurallarına uygun şekilde modellenmiştir.
 
-Urunler: Ürün bilgilerini (ad, fiyat, açıklama, model) tutar.
-Kategoriler: Ürün kategorilerini (ad, açıklama) tanımlar.
-Urunler_Ve_Kategoriler: Ürünler ve kategoriler arasındaki çok-çok ilişkiyi yönetir.
-Musteriler: Müşteri bilgilerini (ad, soyad, e-posta, telefon) saklar.
-Adresler: Müşterilerin adres bilgilerini (il, ilçe, mahalle, cadde, sokak) tutar.
-Sepet: Müşterilerin alışveriş sepeti bilgilerini içerir.
-Sepetteki_Urunler: Sepetlerdeki ürünlerin adet bilgilerini tutar.
-Siparisler: Müşterilerin verdiği siparişlerin genel bilgilerini (tarih, durum, toplam fiyat) kaydeder.
-Odemeler: Siparişlere ait ödeme bilgilerini (kart numarası, son kullanma tarihi) içerir.
-Admin: Yönetim paneli erişimi için yönetici hesaplarını tutar.
-Kargo_Firmalari: Kargo firmalarının bilgilerini (ad, ücret, teslim süresi) saklar.
-Görsel Şema:
-Projenin görsel veritabanı şeması için lütfen Diagrams/image_a04802.png dosyasına bakınız.
+## 🎯 Kapsanan İşlevler
 
+- Ürün ve kategori yönetimi (çoka-çok ilişki)
+- Müşteri ve adres kayıtları
+- Alışveriş sepeti ve sepetteki ürünler
+- Sipariş takibi (tarih, durum, toplam tutar)
+- Ödeme kayıtları
+- Kargo firmaları ve yönetici hesapları
+
+## 🗄️ Veritabanı Şeması
+
+| Tablo | Açıklama |
+| --- | --- |
+| `Urunler` | Ürün adı, fiyatı, açıklaması ve modeli |
+| `Kategoriler` | Kategori adı ve açıklaması |
+| `Urunler_Ve_Kategoriler` | Ürün–kategori çoka-çok ilişki tablosu |
+| `Musteriler` | Ad, soyad, e-posta, telefon |
+| `Adresler` | İl, ilçe, mahalle, cadde, sokak |
+| `Sepet` | Müşterinin alışveriş sepeti |
+| `Sepetteki_Urunler` | Sepetteki ürünler ve adetleri |
+| `Siparisler` | Sipariş tarihi, durumu ve toplam fiyatı |
+| `Odemeler` | Siparişe ait ödeme bilgileri |
+| `Admin` | Yönetim paneli kullanıcıları |
+| `Kargo_Firmalari` | Kargo firması adı, ücreti ve teslim süresi |
+
+## 📁 Proje Yapısı
+
+```
+.
+└── database/
+    └── NisaHobiEvim-veritabani.rar   # SQL Server yedeği (.bak) ve veritabanı dosyaları (.mdf / .ldf)
+```
+
+## 🚀 Kurulum
+
+1. `database/NisaHobiEvim-veritabani.rar` arşivini açın (`NisaHobievim.bak`, `NisaHobievim.mdf`, `NisaHobievim_log.ldf`).
+2. SQL Server Management Studio'da **Databases → Restore Database…** adımından `NisaHobievim.bak` dosyasını seçin
+   *veya* **Databases → Attach…** ile `NisaHobievim.mdf` dosyasını ekleyin.
+3. Tabloları ve ilişkileri **Database Diagrams** bölümünden inceleyebilirsiniz.
+
+## 🛠️ Kullanılan Teknolojiler
+
+- Microsoft SQL Server
+- SQL Server Management Studio (SSMS)
+
+## 👩‍💻 Geliştirici
+
+**Zeynep Erdem** — [github.com/zeyerdm](https://github.com/zeyerdm)
